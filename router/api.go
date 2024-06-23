@@ -8,7 +8,12 @@ import (
 
 func Init() *gin.Engine {
 	r := gin.Default()
+	// 解决跨域问题
 	r.Use(middleware.Cors())
-	r.POST("/", service.Login)
+	//api端口
+	r.POST("/login", service.Login)
+
+	r.POST("/setLogin", service.GetLogin)
+
 	return r
 }

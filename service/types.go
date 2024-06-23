@@ -11,3 +11,9 @@ type LoginSum struct {
 	Token        string `json:"token"`
 	RefreshToken string `json:"refresh_token"`
 }
+
+// SetLogin 注册结构体
+type SetLogin struct {
+	Username string `json:"username"` // 用户名
+	Password string `json:"password"` // 密码
+}

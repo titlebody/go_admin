@@ -25,3 +25,13 @@ func GetUserPassBox(user, password string) (*SysUser, error) {
 	err := define.DB.Where("username=? and password=?", user, password).First(&data).Error
 	return data, err
 }
+
+// AddUser 添加用户
+func AddUser(username, password string) error {
+	i := &SysUser{
+		Username: username,
+		Password: password,
+	}
+	err := define.DB.Create(&i).Error
+	return err
+}

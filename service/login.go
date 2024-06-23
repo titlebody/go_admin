@@ -22,9 +22,9 @@ func Login(c *gin.Context) {
 	}
 
 	// 根据账号密码查询
-	sysUser, e := models.GetUserPassBox(i.Username, i.Password)
-	if e != nil {
-		if errors.Is(e, gorm.ErrRecordNotFound) {
+	sysUser, e := models.GetUserPassBox(i.Username, i.Password) // 查询用户
+	if e != nil {                                               // 查询失败
+		if errors.Is(e, gorm.ErrRecordNotFound) { //
 			c.JSON(200, gin.H{
 				"code":    400,
 				"message": "用户名或者密码错误",
